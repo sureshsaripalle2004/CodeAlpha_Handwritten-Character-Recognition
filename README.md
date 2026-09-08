@@ -1,109 +1,116 @@
-# CodeAlpha – Handwritten Character Recognition
 
-A Convolutional Neural Network (CNN) based handwritten digit recognition system developed as part of the CodeAlpha Machine Learning Internship.
+# CodeAlpha Handwritten Character Recognition
 
-The project uses the MNIST handwritten digit dataset to train a deep learning model capable of recognizing handwritten digits from 0 to 9.
+## Project Overview
 
----
+This project implements a **Handwritten Character Recognition system** using a **Convolutional Neural Network (CNN)** and the **MNIST handwritten digit dataset**.
 
-##  Project Overview
-
-Handwritten character recognition is an important application of computer vision and machine learning. It enables computers to interpret handwritten characters and convert them into machine-readable information.
-
-In this project, a Convolutional Neural Network (CNN) is developed using TensorFlow and Keras to classify handwritten digits from the MNIST dataset.
-
-The project includes:
-
-- MNIST dataset loading and exploration
-- Image preprocessing
-- CNN model development
-- Model training and validation
-- Performance evaluation
-- Confusion matrix analysis
-- Classification report
-- Sample digit predictions
-- Real-world handwritten digit testing
-- Training and validation performance visualization
-- Saving model evaluation results
-
----
+The model is trained to recognize handwritten digits from **0 to 9**.
 
 ## Objectives
 
-The main objectives of this project are:
-
-1. To understand the MNIST handwritten digit dataset.
-2. To preprocess handwritten digit images for CNN input.
-3. To develop a CNN-based image classification model.
-4. To train the model using the MNIST training dataset.
-5. To evaluate the model using the test dataset.
-6. To analyze model performance using accuracy, precision, recall, and F1-score.
-7. To visualize the confusion matrix and training performance.
-8. To test the trained model on a real-world handwritten digit image.
-
----
-
-## Dataset
-
-### MNIST Handwritten Digit Dataset
-
-The MNIST dataset contains grayscale images of handwritten digits ranging from **0 to 9**.
-
-### Dataset Characteristics
-
-- Training images: 60,000
-- Test images: 10,000
-- Image size: 28 × 28 pixels
-- Number of classes: 10
-- Classes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-- Image type: Grayscale
-
-The dataset is loaded directly using the TensorFlow/Keras built-in MNIST dataset.
-
----
+- Load and explore the MNIST dataset
+- Preprocess handwritten digit images
+- Build a CNN-based deep learning model
+- Train and validate the model
+- Evaluate model performance
+- Generate a confusion matrix and classification report
+- Visualize correct and incorrect predictions
+- Test the trained model using real-world handwritten digit images
 
 ## Technologies Used
 
 - Python
-- TensorFlow
-- Keras
+- TensorFlow / Keras
 - NumPy
 - Pandas
 - Matplotlib
 - Seaborn
 - Scikit-learn
 - Google Colab
-- GitHub
 
----
+## Dataset
 
-## Model Architecture
+The project uses the **MNIST handwritten digit dataset**.
 
-A Convolutional Neural Network (CNN) is used for handwritten digit classification.
+- Training images: 60,000
+- Testing images: 10,000
+- Image size: 28 × 28 pixels
+- Number of classes: 10
+- Classes: 0–9
 
-### CNN Architecture
+## CNN Architecture
+
+The CNN model consists of:
+
+1. Input Layer
+2. Convolutional Layer – 32 filters
+3. Max Pooling Layer
+4. Convolutional Layer – 64 filters
+5. Max Pooling Layer
+6. Flatten Layer
+7. Dense Layer – 128 neurons
+8. Dropout Layer – 0.3
+9. Output Layer – 10 neurons with Softmax activation
+
+## Model Training
+
+The model was trained using:
+
+- Optimizer: Adam
+- Loss Function: Sparse Categorical Crossentropy
+- Epochs: 10
+- Batch Size: 128
+- Validation Split: 10%
+
+## Results
+
+The trained CNN achieved:
+
+**Test Accuracy: 99.28%**
+
+The model performance was evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- Classification Report
+
+## Real-World Testing
+
+The trained model can also be tested using handwritten digit images uploaded from a computer.
+
+The uploaded image is:
+
+1. Converted to grayscale
+2. Preprocessed
+3. Cropped to the handwritten digit
+4. Resized to 28 × 28 pixels
+5. Normalized
+6. Passed to the trained CNN model
+
+The model then predicts the handwritten digit and displays its confidence score.
+
+## Google Colab
+https://colab.research.google.com/drive/1DOdTS6nn9j3RUcW6g-Ota3pD45IgPXGj?usp=sharing 
+
+## Project Structure
 
 ```text
-Input Image
-    ↓
-28 × 28 × 1
-    ↓
-Conv2D – 32 Filters
-    ↓
-MaxPooling2D
-    ↓
-Conv2D – 64 Filters
-    ↓
-MaxPooling2D
-    ↓
-Flatten
-    ↓
-Dense – 128 Neurons
-    ↓
-Dropout – 30%
-    ↓
-Dense – 10 Neurons
-    ↓
-Softmax
-    ↓
-Predicted Digit (0–9)
+CodeAlpha_Handwritten-Character-Recognition/
+│
+├── CodeAlpha_Handwritten_Character_Recognition.ipynb
+├── README.md
+├── requirements.txt
+│
+└── results/
+    ├── classification_report.csv
+    ├── confusion_matrix.csv
+    ├── confusion_matrix.png
+    ├── model_performance.csv
+    ├── sample_predictions.csv
+    ├── training_history.csv
+    ├── training_validation_accuracy.png
+    └── training_validation_loss.png
